@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:state_mngmt_basics/NewContactState.dart';
 
 import 'pages/screen.dart';
 
@@ -12,35 +13,11 @@ class StateManagementBasics extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
       ),
       debugShowCheckedModeBanner: false,
+      home: const screen(),
       routes: {
-        '/': (context) => screen(),
+        '/new-contact': (context) => const NewContactView(),
       },
     );
   }
 }
 
-class Contact {
-  final String name;
-  const Contact({required this.name});
-}
-
-class ContactBook {
-  ContactBook._sharedInstance();
-  static final ContactBook _shared = ContactBook._sharedInstance();
-  factory ContactBook() => _shared;
-
-  final List<Contact> _contacts = [];
-
-  int get length => _contacts.length;
-
-  void add({required Contact contact}) {
-    _contacts.add(contact);
-  }
-
-  void remove({required Contact contact}) {
-    _contacts.add(contact);
-  }
-
-  Contact? contact({required int atIndex}) => 
-  _contacts.length > atIndex ? _contacts[atIndex] : null;
-}
