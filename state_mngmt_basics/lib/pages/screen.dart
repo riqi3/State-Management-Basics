@@ -24,6 +24,11 @@ class screen extends StatelessWidget {
           );
         },
       ),
+      floatingActionButton: FloatingActionButton(onPressed: (){
+        print("test");
+      },
+      child: const Icon(Icons.add),
+      ),
     );
   }
 }
